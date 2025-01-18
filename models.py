@@ -1,4 +1,4 @@
-from peewee import Model, CharField, BooleanField, SqliteDatabase
+from peewee import Model, CharField, BooleanField, SqliteDatabase, IntegerField
 
 # Database connection
 db = SqliteDatabase("database.db")
@@ -15,6 +15,7 @@ class Task(BaseModel):
     title = CharField()
     description = CharField()
     completed = BooleanField(default=False)
+    user_id = IntegerField() 
 
 # Initialize the database
 db.connect()

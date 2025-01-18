@@ -25,7 +25,7 @@ def addtask_get():
 def get_tasks():
     if "user_id" not in session:
         return jsonify({"error": "Unauthorized"}), 401
-    tasks = Task.select()
+    tasks = Task.select().where(Task.user_id == session["user_id"])
     return render_template("tasks.html", tasks = [task.__data__ for task in tasks])
 
 # Backend tasks
@@ -34,7 +34,7 @@ def add_task():
     if "user_id" not in session:
         return jsonify({"error": "Unauthorized"}), 401
     data = request.get_json()
-    task = Task.create(title=data["title"], description=data.get("description", ""))
+    task = Task.create(title=data["title"], description=data.get("description", ""), user_id=session["user_id"])
     return jsonify(task.__data__), 201
 
 @task_routes.route("/<int:task_id>", methods=["PUT"])

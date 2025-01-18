@@ -1,0 +1,4 @@
+database.db
+__pycache__/app.cpython-313.pyc
+__pycache__/models.cpython-313.pyc
+__pycache__/routes.cpython-313.pyc
