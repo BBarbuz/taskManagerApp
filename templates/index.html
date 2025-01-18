@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+
+</head>
+<body>
+    <header>
+        <div class="logo">Tasker!</div>
+        <ul class="menu">
+            <li><a href="/tasks">Tasks</a></li>
+            <li><a href="/auth/login">Login</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <h1><h1>Tasks in one place</h1>
+        <p>Improved Productivity</p>
+           <p> Stay focused by organizing tasks and prioritizing them effectively.
+            Visualize your workload to complete tasks on time.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Your Company. All rights reserved.</p>
+    </footer>
+    
+    <script src="{{ url_for('static', filename= 'js/app.js') }}"></script>
+</body>
+</html>
