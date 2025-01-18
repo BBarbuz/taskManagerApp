@@ -24,9 +24,16 @@ def addtask_get():
 @task_routes.route("/", methods=["GET"])
 def get_tasks():
     if "user_id" not in session:
-        return jsonify({"error": "Unauthorized"}), 401
+        return render_template("tasks_nologin.html")
     tasks = Task.select().where(Task.user_id == session["user_id"])
     return render_template("tasks.html", tasks = [task.__data__ for task in tasks])
+
+@task_routes.route("/<int:task_id>", methods=["GET"])
+def get_task_update(task_id):
+    task = Task.get_or_none(Task.id == task_id, Task.user_id == session["user_id"])
+    if not task:
+        return jsonify({"error": "Unauthorized"}), 401
+    return render_template("edit.html"), task_id
 
 # Backend tasks
 @task_routes.route("/add", methods=["POST"])

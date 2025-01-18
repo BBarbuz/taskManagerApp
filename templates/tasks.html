@@ -18,38 +18,38 @@
     </header>
 
     <h1>Task List</h1>
-    <a href="/tasks/add">Add new task</a>
-  
-        <h3>To be completed: </h3>
-        <ul>
-            {% for task in tasks %}
-            {% if task.completed == False: %}
-                <li>
-                    <input type="checkbox" class="task-checkbox" data-task-id="{{ task.id }}" {% if task.completed %} checked {% endif %}>
-                    {{ task.title }}: {{ task.description }}
-                </li>
-            {% endif %}
-            {% endfor %}
-        </ul>
-        <br/>
-        
-        <h3>Completed: </h3>
-        <ul>
-            {% for task in tasks %}
-            {% if task.completed == True: %}
-                <li>
-                    <input type="checkbox" class="task-checkbox" data-task-id="{{ task.id }}" {% if task.completed %} checked {% endif %}>
-                    {{ task.title }}: {{ task.description }}
-                </li>
-            {% endif %}
-            {% endfor %}
-        </ul>
-        
+    <a href="/tasks/add">Add new task</a> <br/><br/>
+
+    <h3>To be completed:</h3>
+    <ul id="incomplete-tasks">
+        {% for task in tasks %}
+        {% if not task.completed %}
+        <li>
+            <input type="checkbox" class="task-checkbox" data-task-id="{{ task.id }}">
+            {{ task.title }}: {{ task.description }}    
+            <a href="/tasks/{{ task.id }}">Edit </a>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    <br/><br/>
+    <h3>Completed:</h3>
+    <ul id="completed-tasks">
+        {% for task in tasks %}
+        {% if task.completed %}
+        <li>
+            <input type="checkbox" class="task-checkbox" data-task-id="{{ task.id }}" checked>
+            {{ task.title }}: {{ task.description }}
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    
 
     <footer>
-        <p>&copy; 2025 Your Company. All rights reserved.</p>
+        <p>&copy; 2025 Tasker!. All rights reserved.</p>
     </footer>
 
-        <script src="{{ url_for('static', filename= 'js/app.js') }}"></script>
+        <script src="{{ url_for('static', filename= 'js/tasks.js') }}"></script>
 </body>
 </html>

@@ -1,88 +1,290 @@
-body {
-    font-family: Arial, sans-serif;
+/* Global Styles */
+* {
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    box-sizing: border-box;
 }
 
-h1 {
+/* Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
     color: #333;
-}
-
-form {
-    margin: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
 }
 
-input, button {
-    margin: 5px 0;
-    padding: 10px;
-}
-
-button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-
+/* Header Styles */
 header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     background-color: #007BFF;
     color: white;
-    padding: 10px 20px;
+    padding: 15px 30px;
     width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
 }
 
 .logo {
-    font-size: 1.5em;
+    font-size: 1.8rem;
     font-weight: bold;
-    margin-left: 1em;
+    letter-spacing: 1px;
+    
 }
 
 .menu {
-    list-style: none;
     display: flex;
-    margin: 0;
-    padding: 0;
+    list-style: none;
 }
 
 .menu li {
-    margin: 0 15px;
+    margin-left: 20px;
 }
 
 .menu a {
+    color: #333;
+    font-size: 1.1rem;
     text-decoration: none;
-    color: white;
-    font-size: 1em;
+    transition: color 0.3s ease;
 }
 
 .menu a:hover {
-    text-decoration: underline;
+    color: #ffca28;
 }
 
-footer {
+/* Main Content Area */
+main {
+    padding: 80px 20px 50px;
     text-align: center;
+    max-width: 800px;
+    width: 100%;
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    animation: slideInFromLeft 0.8s ease-out;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 10px auto;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Task List Styling */
+h3 {
+    font-size: 1.5rem;
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+}
+
+li {
+    background-color: #ffffff;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+li:hover {
+    transform: translateY(-5px);
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffca28;
+}
+
+/* Spacing before Edit Link */
+li a {
+    margin-left: 20px; /* Adds space before the Edit link */
+}
+
+/* Completed Tasks Styling */
+#completed-tasks li {
+    background-color: #e4f7e8;
+    text-decoration: line-through;
+}
+
+#completed-tasks input[type="checkbox"] {
+    background-color: #66bb6a;
+}
+
+/* Footer */
+footer {
+    background-color: #007BFF;
+    color: #333;
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+}
+
+/* Login/Register Form */
+form {
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
     background-color: #007BFF;
     color: white;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
 }
 
-main {
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Login/Register Links */
+form .register-link, form .login-link {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+form .register-link a, form .login-link a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+form .register-link a:hover, form .login-link a:hover {
+    color: #ffca28;
+}
+
+/* Add Task Page */
+#add-task-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
     padding: 20px;
-    margin-bottom: 50px; /* Space for fixed footer */
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+#add-task-form input, #add-task-form button {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 5px;
+}
+
+#add-task-form input {
+    border: 1px solid #ddd;
+}
+
+#add-task-form button {
+    background-color: #28a745;
+    color: white;
+}
+
+#add-task-form button:hover {
+    background-color: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .menu li {
+        margin: 5px 0;
+    }
+
+    main {
+        padding: 60px 20px 50px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    form {
+        width: 90%;
+        padding: 25px;
+    }
 }

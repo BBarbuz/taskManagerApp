@@ -17,21 +17,15 @@
         </ul>
     </header>
 
-    <main>
-        <h1>Add new task</h1>
-        
-        <form id="add-form">
-            <input type="text" name="title" placeholder="title" required>
-            <input type="text" name="description" placeholder="description" required>
-            <button type="submit">Add task</button>
-        </form>
+    <h1>Task Editor</h1>
+    
 
-    </main>
+    
 
     <footer>
         <p>&copy; 2025 Tasker!. All rights reserved.</p>
     </footer>
-    
-    <script src="{{ url_for('static', filename= 'js/app.js') }}"></script>
+
+        <script src="{{ url_for('static', filename= 'js/tasks.js') }}"></script>
 </body>
 </html>
