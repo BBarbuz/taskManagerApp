@@ -16,35 +16,36 @@
             <li><a href="/auth/logout">Logout</a></li>
         </ul>
     </header>
+    <main>
+        <h1>Task List</h1>
+        <button class="new-task"><a href="/tasks/add">Add new task</a></button> <br/><br/>
 
-    <h1>Task List</h1>
-    <a href="/tasks/add">Add new task</a> <br/><br/>
-
-    <h3>To be completed:</h3>
-    <ul id="incomplete-tasks">
-        {% for task in tasks %}
-        {% if not task.completed %}
-        <li>
-            <input type="checkbox" class="task-checkbox" data-task-id="{{ task.id }}">
-            {{ task.title }}: {{ task.description }}    
-            <a href="/tasks/{{ task.id }}">Edit </a>
-        </li>
-        {% endif %}
-        {% endfor %}
-    </ul>
-    <br/><br/>
-    <h3>Completed:</h3>
-    <ul id="completed-tasks">
-        {% for task in tasks %}
-        {% if task.completed %}
-        <li>
-            <input type="checkbox" class="task-checkbox" data-task-id="{{ task.id }}" checked>
-            {{ task.title }}: {{ task.description }}
-        </li>
-        {% endif %}
-        {% endfor %}
-    </ul>
-    
+        <h3>To be completed:</h3>
+        <ul id="incomplete-tasks">
+            {% for task in tasks %}
+            {% if not task.completed %}
+            <li>
+                <input type="checkbox" class="task-checkbox" data-task-id="{{ task.id }}">
+                {{ task.title }}: {{ task.description }}    
+                <a href="/tasks/{{ task.id }}">Edit </a>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        <br/><br/>
+        <h3>Completed:</h3>
+        <ul id="completed-tasks">
+            {% for task in tasks %}
+            {% if task.completed %}
+            <li>
+                <input type="checkbox" class="task-checkbox" data-task-id="{{ task.id }}" checked>
+                {{ task.title }}: {{ task.description }}
+                <a href="/tasks/{{ task.id }}">Edit </a>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </main>
 
     <footer>
         <p>&copy; 2025 Tasker!. All rights reserved.</p>

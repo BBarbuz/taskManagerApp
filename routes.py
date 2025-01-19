@@ -41,8 +41,10 @@ def add_task():
     if "user_id" not in session:
         return jsonify({"error": "Unauthorized"}), 401
     data = request.get_json()
-    task = Task.create(title=data["title"], description=data.get("description", ""), user_id=session["user_id"])
-    return jsonify(task.__data__), 201
+    if len(data['title']) <= 70 and len(data['description']) <=250:
+        task = Task.create(title=data["title"], description=data.get("description", ""), user_id=session["user_id"])
+        return jsonify(task.__data__), 201
+    return jsonify({"success": False})
 
 @task_routes.route("/<int:task_id>", methods=["PUT"])
 def update_task(task_id):
@@ -81,8 +83,11 @@ def logout_get():
 def register():
     data = request.get_json()
     password_hash = generate_password_hash(data["password"])
-    user = User.create(username=data["username"], password_hash=password_hash)
-    return jsonify(user.__data__), 201
+    if 3 <= len(data['username']) <= 15 and 8 <= len(data['password']) <= 40:
+        user = User.create(username=data["username"], password_hash=password_hash)
+        return jsonify(user.__data__), 201
+    return jsonify({"success": False})
+    
 
 @auth_routes.route("/login", methods=["POST"])
 def login():
