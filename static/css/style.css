@@ -67,6 +67,7 @@ main {
     max-width: 800px;
     width: 100%;
     animation: fadeIn 1s ease-in-out;
+    margin-top: 100px;
 }
 
 h1 {
@@ -143,6 +144,11 @@ li a {
     text-decoration: line-through;
 }
 
+#completed-tasks a {
+    background-color: #e4f7e8;
+    text-decoration: none;
+}
+
 #completed-tasks input[type="checkbox"] {
     background-color: #66bb6a;
 }
@@ -157,6 +163,10 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
+}
+
+footer p{
+    color: black;
 }
 
 /* Animations */
@@ -287,4 +297,64 @@ form .register-link a:hover, form .login-link a:hover {
         width: 90%;
         padding: 25px;
     }
+}
+
+#delete-task-button {
+    width: 30%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 5px;
+    margin-top: 10%;
+}
+
+
+#delete-task-button {
+    background-color: #e53232;
+    color: white;
+}
+
+#delete-task-button:hover {
+    background-color: #ab0219;
+}
+
+#new-task {
+    width: 30%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 5px;
+    margin-top: 3%;
+    margin-bottom: 10%;
+}
+
+#new-task {
+    background-color: #28a745;
+    color: white;
+}
+
+#new-task:hover {
+    background-color: #218838;
+    cursor: pointer;
+}
+
+#error-message {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 5px;
+    margin-top: 3%;
+    margin-bottom: 10%;
+    background-color: #e53232;
+    color: white;
+    
+}
+
+#success-message{
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 5px;
+    margin-top: 3%;
+    margin-bottom: 10%;
+    background-color: #28a745;
+    color: white;
 }

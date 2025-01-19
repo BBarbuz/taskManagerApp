@@ -1,13 +1,10 @@
 from flask import Blueprint, request, jsonify, session, render_template
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import Task, User
-#import logging
 
 task_routes = Blueprint("tasks", __name__, url_prefix="/tasks")
 auth_routes = Blueprint("auth", __name__, url_prefix="/auth")
 main_routes = Blueprint("main", __name__, url_prefix="/")
-
-#logging.basicConfig(level=logging.DEBUG)
 
 # Main Page
 @main_routes.route("/", methods=["GET"])
@@ -30,6 +27,8 @@ def get_tasks():
 
 @task_routes.route("/<int:task_id>", methods=["GET"])
 def get_task_update(task_id):
+    if "user_id" not in session:
+        return jsonify({"error": "Unauthorized"}), 401
     task = Task.get_or_none(Task.id == task_id, Task.user_id == session["user_id"])
     if not task:
         return jsonify({"error": "Unauthorized"}), 401
@@ -84,6 +83,12 @@ def logout_get():
 def register():
     data = request.get_json()
     password_hash = generate_password_hash(data["password"])
+
+    # Check if username already exists
+    existing_user = User.get_or_none(User.username == data["username"])
+    if existing_user:
+        return jsonify({"success": False, "error": "Username already exists"}), 409
+    
     if 3 <= len(data['username']) <= 15 and 8 <= len(data['password']) <= 40:
         user = User.create(username=data["username"], password_hash=password_hash)
         return jsonify(user.__data__), 201

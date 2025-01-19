@@ -60,7 +60,7 @@ if (el) {
             body: JSON.stringify({ username, password }),
         });
 
-        successOrNot(response.ok, 'Registration successful!', 'Registration failed. Please try again.', successMessageElement, errorMessageElement);
+        successOrNot(response.ok, 'Registration successful!', 'Registration failed. User already exist.', successMessageElement, errorMessageElement);
 
         if (response.ok) {
             window.location.href = '/auth/login';
@@ -116,10 +116,10 @@ if(el){
 }
 
 // add.html script
-el = document.getElementById('add-form');
+el = document.getElementById('add-task-form');
 if(el){
 
-    document.getElementById('add-form').addEventListener('submit', async (event) => {
+    document.getElementById('add-task-form').addEventListener('submit', async (event) => {
         event.preventDefault();
 
         // Constants definitions

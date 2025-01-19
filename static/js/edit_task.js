@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const taskId = window.location.pathname.split('/').pop(); // Extract task ID from URL
-    const editForm = document.getElementById('edit-task-form');
+    const editForm = document.getElementById('add-task-form');
     const deleteButton = document.getElementById('delete-task-button');
     const successMessageElement = document.getElementById('success-message');
     const errorMessageElement = document.getElementById('error-message');
