@@ -1,0 +1,2 @@
+rejestration: check for repeated usernames
+tasks: edit delete functions

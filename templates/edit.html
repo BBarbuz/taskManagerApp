@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Edit Task</title>
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
-
 </head>
 <body>
     <header>
@@ -17,15 +16,29 @@
         </ul>
     </header>
 
-    <h1>Task Editor</h1>
-    
+    <main>
+        <h1>Edit Task</h1>
 
-    
+        <form id="edit-task-form">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required maxlength="70" value="{{ task.title }}">
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required maxlength="250">{{ task.description }}</textarea>
+
+            <button type="submit">Update Task</button>
+        </form>
+
+        <button id="delete-task-button" class="delete-button">Delete Task</button>
+
+        <div id="success-message" class="success-message" style="display: none;"></div>
+        <div id="error-message" class="error-message" style="display: none;"></div>
+    </main>
 
     <footer>
         <p>&copy; 2025 Tasker!. All rights reserved.</p>
     </footer>
 
-        <script src="{{ url_for('static', filename= 'js/tasks.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'js/edit_task.js') }}"></script>
 </body>
 </html>
