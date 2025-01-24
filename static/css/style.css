@@ -8,7 +8,9 @@
 /* Body Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f7fc;
+    background: url('background.png') no-repeat center center fixed, rgba(255, 255, 255, 0.9);
+    background-size: cover;
+    background-blend-mode: overlay; /* Blend image and transparent color */
     color: #333;
     display: flex;
     flex-direction: column;
@@ -23,7 +25,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #007BFF;
+    background-color: rgba(0, 123, 255, 0.8);
     color: white;
     padding: 15px 30px;
     width: 100%;
@@ -69,6 +71,7 @@ main {
     animation: fadeIn 1s ease-in-out;
     margin-top: 100px;
 }
+
 
 h1 {
     font-size: 2.5rem;
