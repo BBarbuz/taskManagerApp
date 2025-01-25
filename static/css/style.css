@@ -44,18 +44,30 @@ header {
 
 .menu {
     display: flex;
-    list-style: none;
+    /* list-style: none; */
 }
 
 .menu li {
     margin-left: 20px;
 }
 
+.menu li a{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-left: 0px;
+}
+
+
 .menu a {
+    display: block;
     color: #333;
     font-size: 1.1rem;
     text-decoration: none;
     transition: color 0.3s ease;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 
 .menu a:hover {
@@ -280,12 +292,19 @@ form .register-link a:hover, form .login-link a:hover {
     }
 
     .menu {
-        flex-direction: column;
+        /* flex-direction: column; */
         margin-top: 10px;
+        /* margin: 0 10px; */
     }
 
     .menu li {
-        margin: 5px 0;
+        margin: 5px 10px;
+        justify-content: center;
+        align-items: center;
+    }
+    .menu li a{
+        justify-content: center;
+        align-items: center;
     }
 
     main {
